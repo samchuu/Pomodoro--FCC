@@ -66,7 +66,7 @@ function Timer({
       //CLEAR INTERVAL FOR 10 AND 11!
       return () => clearInterval(interval);
     }
-  }, [seconds, isTimerActive]);
+  });
 
   const toggleTimerHandler = () => {
     setIsTimerActive(!isTimerActive);
