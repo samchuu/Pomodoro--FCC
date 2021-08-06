@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import "./styles.css";
+import Timer from "./components/Timer";
 function App() {
+  const [minutes, setMinutes] = useState(25);
+  const [seconds, setSeconds] = useState(0);
+  const [breakCounter, setBreakCounter] = useState(5);
+  const [isTimerActive, setIsTimerActive] = useState(false);
+  const [isBreakTimerActive, setIsBreakTimerActive] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>pomodoro</h1>
+      <Timer
+        seconds={seconds}
+        setSeconds={setSeconds}
+        minutes={minutes}
+        setMinutes={setMinutes}
+        isBreakTimerActive={isBreakTimerActive}
+        setIsBreakTimerActive={setIsBreakTimerActive}
+        breakCounter={breakCounter}
+        setBreakCounter={setBreakCounter}
+        isTimerActive={isTimerActive}
+        setIsTimerActive={setIsTimerActive}
+      />
     </div>
   );
 }
