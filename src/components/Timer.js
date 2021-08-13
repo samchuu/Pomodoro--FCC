@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
-
+import play from "../icons/play.png";
+import pause from "../icons/pause.png";
+import reset from "../icons/reset.png";
 function Timer({
   seconds,
   setSeconds,
@@ -150,10 +152,11 @@ function Timer({
       </div>
       <div className="icons">
         <span onClick={toggleTimerHandler} id="start_stop">
-          ▶◼
+          <img className="icon" src={play} alt="" />
+          <img className="icon" src={pause} alt="" />
         </span>
-        <span onClick={resetHandler} id="reset">
-          ↺
+        <span onClick={resetHandler}>
+          <img className="icon" id="reset" src={reset} alt="" />
         </span>
       </div>
 

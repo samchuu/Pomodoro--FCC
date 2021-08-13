@@ -79,3 +79,11 @@ span {
   display: flex;
   justify-content: center;
 }
+
+.icon {
+  width: 30px;
+}
+
+#reset {
+  width: 25px;
+}
