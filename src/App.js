@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./styles.css";
 import Timer from "./components/Timer";
 function App() {
-  const [minutes, setMinutes] = useState(25);
-  const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(3);
   const [breakCounter, setBreakCounter] = useState(5);
   const [isTimerActive, setIsTimerActive] = useState(false);
   const [isBreakTimerActive, setIsBreakTimerActive] = useState(false);

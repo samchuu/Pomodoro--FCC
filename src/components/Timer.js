@@ -18,6 +18,7 @@ function Timer({
   const timerMinutes = minutes < 10 ? `0${minutes}` : minutes;
   const timerSeconds = seconds < 10 ? `0${seconds}` : seconds;
   const audioRef = useRef();
+
   //handlers
   const incrementHandler = () => {
     if (minutes < 60) {
@@ -53,6 +54,7 @@ function Timer({
           } else if (minutes === 0) {
             setIsBreakTimerActive(!isBreakTimerActive);
             setMinutes(breakCounter);
+
             //show first the break-length value for 800ms then play audio
             setTimeout(function () {
               audioRef.current.play();
@@ -65,7 +67,7 @@ function Timer({
           setSeconds(seconds - 1);
         }
       }, 1000);
-      //CLEAR INTERVAL FOR 10 AND 11!
+      // always remember to use clearInterval!
       return () => clearInterval(interval);
     }
   });
@@ -73,6 +75,13 @@ function Timer({
   const toggleTimerHandler = () => {
     setIsTimerActive(!isTimerActive);
     setSeconds(seconds);
+    //if break is active and timer is running, pause the timer and audio
+    if (isBreakTimerActive === true && isTimerActive === true) {
+      audioRef.current.pause();
+      //if break is still active and timer is not running, resume the timer and play audio
+    } else if (isBreakTimerActive === true && isTimerActive === false) {
+      audioRef.current.play();
+    }
   };
 
   const resetHandler = () => {
